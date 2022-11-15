@@ -6,20 +6,20 @@
 # Notes: if any
 
 # Display help message 
-USEAGE(){
+USAGE(){
 	echo -e $1
 	echo -e "\nUseage: systemStats [-t temperature] [-f core-frequency] [-c cores] [-V volts]"
 	echo -e "\t\t    [-m arm memory] [-M GPU memory] [-f free memory] [-i ipv4 and ipv6 address]"
-	echo -e "\t\t    [-v version] [-h help]"
+	echo -e "\t\t    [-D Directory Space][-d Disk Space][-v version] [-h help]"
 	echo -e "\t\t     more information see man systemstats"
 }
 
 # Check for arguments (error checking)
-
+ARGSLENGTH=$#
 if [ $# -lt 1 ];then
 	USAGE "Not enough arguments"
 	exit 1
-elif [ $# -gt 10 ];then
+elif [[  ( $# -gt 1) || ( ${#1} -gt 10 )  ]];then
 	USAGE "To many arguements"
 	exit 1
 elif [[ ( $1 == '--help' ) || ( $1 == '-h' ) ]];then
@@ -31,7 +31,7 @@ fi
 # with flags method, some of the arguments can have optional commands!
 # 'a:b' means that 'a' is expecting a mandatory command after it and 'b' is not, 'abc' means they all are mandatory commands
 
-while getopts "tfcVmMfivh" OPTION
+while getopts "tfcVmMfivhdD" OPTION
 do
 case ${OPTION}
 in
@@ -50,6 +50,10 @@ c) CORES=$(cat /sys/devices/system/cpu/present)
    echo "CPU cores: ${CORES}";;
 V) VOLTS=$(vcgencmd measure_volts| awk -F '=' '{print$2}')
    echo "Voltage: ${VOLTS}";;
+d) DISK=$(df -h | grep root | awk '{print "Total Space Available:"  $2 " " "Space Used:" $3 " " "Space Available:" $4 " " "Percent Used:" $5}')
+   echo -e "Disk Space:\n  ${DISK}";;
+D) DIRECTORY=$(du -s --si ~/ACE)
+   echo -e "Directory Space Size: ${DIRECTORY}";;
 *) USAGE "\n${*} argument was not recognized";;
 esac
 done
