@@ -1,0 +1,35 @@
+.TH "SYSTEMSTATS" "1" "15 Nov 2022" "0.3" "SYSTEMSTATS man page"
+
+.SH "NAME"
+systemstats \- retrieves information about the host system 
+
+.SH "SYNOPSIS"
+.HP \w'\fRsystemStats\fR\ 'u
+\fRsystemStats\fR [\-F\ \fIcpu usage\fR] [\-i \fIIP address\fR] [\-t \fITemperature\fR] [\-c\ \fICPU cores\fR] [\-v\ \fIVoltage\fR] [\-m\ \fIArm memory\fR] [\-M\ \fIGPU memory\fR] [\-f\ \fIFree memory\fR] [\-d\ \fIDisk Space\fR] [\-h\ \fIHelp\fR]
+.br
+
+.SH "DESCRIPTION"
+.PP
+\fB\-F\fR
+.RS
+  show current CPU Usage FREE=##.##\% Used=##.##\%
+.RE
+.PP
+\fB\-i\fR
+.RS
+  show host IPv4 address
+.RE
+.PP
+\fB\-t\fR
+.RS
+  get current core temperature of system temp=## c
+.RE
+
+.SH "NOTES"
+This script will be developed over time to display more information using different options
+
+.SH "BUGS"
+Any bugs(features) please use the suggestion bin ... >/dev/null
+
+.SH "AUTHORS"
+Charles Stratton\-Brown <charlesstrattonbrown@gmail.com>
