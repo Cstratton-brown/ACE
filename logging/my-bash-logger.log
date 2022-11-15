@@ -1,0 +1,23 @@
+2022-11-08 17:56:31 GMT 4499 [WARNING] Configurations Reset
+2022-11-08 17:56:31 GMT 4499 [DEBUG] example debug log
+2022-11-08 17:56:32 GMT 4499 [INFO] example info log
+2022-11-08 17:56:32 GMT 4499 [NOTICE] example notice log
+2022-11-08 17:56:32 GMT 4499 [WARNING] example warning log
+2022-11-08 17:56:32 GMT 4499 [INFO] Changing default log behavior
+2022-11-08 17:56:32 GMT 4499 [NOTICE] default logging behavior overwritten
+2022-11-08 17:56:32 GMT 4499 [DEBUG] Example Debug log
+2022-11-08 17:56:32 GMT 4499 [INFO] Example Info log
+2022-11-08 17:56:32 GMT 4499 [NOTICE] Example Notice log
+2022-11-08 17:56:32 GMT 4499 [WARNING] Example Warning log
+2022-11-08 17:56:32 GMT 4499 [ERROR] Example Error log
+2022-11-08 17:56:32 GMT 4499 [CRITICAL] Example Critical log
+2022-11-08 17:56:32 GMT 4499 [ALERT] Example Alert log
+2022-11-08 17:56:32 GMT 4499 [EMERGENCY] Example Emergency log
+2022-11-08 17:56:32 GMT 4499 [INFO] Adding additional default behavior
+2022-11-08 17:56:32 GMT 4499 [NOTICE] test notice log
+2022-11-08 17:56:32 GMT 4499 [NOTICE] Log message from pipe
+2022-11-08 17:56:32 GMT 4499 [WARNING] prefix: Log message from pipe
+2022-11-08 17:56:33 GMT 4499 [NOTICE] pipe: This is a
+2022-11-08 17:56:33 GMT 4499 [NOTICE] pipe: multiline message
+2022-11-08 17:56:33 GMT 4499 [NOTICE] pipe: from pipe
+2022-11-08 17:56:33 GMT 4499 [WARNING] pipe: 

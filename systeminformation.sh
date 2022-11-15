@@ -2,4 +2,4 @@
 
 HOSTNAME=$(cat /etc/hostname)
 
-echo "${HOSTNAME}"
+echo "System Hostname: ${HOSTNAME}"
