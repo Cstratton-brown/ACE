@@ -5,7 +5,7 @@ systemstats \- retrieves information about the host system
 
 .SH "SYNOPSIS"
 .HP \w'\fRsystemStats\fR\ 'u
-\fRsystemStats\fR [\-F\ \fIcpu usage\fR] [\-i \fIIP address\fR] [\-t \fITemperature\fR] [\-c\ \fICPU cores\fR] [\-v\ \fIVoltage\fR] [\-m\ \fIArm memory\fR] [\-M\ \fIGPU memory\fR] [\-f\ \fIFree memory\fR] [\-d\ \fIDisk Space\fR] [\-h\ \fIHelp\fR]
+\fRsystemStats\fR [\-F\ \fIcpu usage\fR] [\-i \fIIP address\fR] [\-t \fITemperature\fR] [\-c\ \fICPU cores\fR] [\-V\ \fIVoltage\fR] [\-m\ \fIArm memory\fR] [\-M\ \fIGPU memory\fR] [\-f\ \fIFree memory\fR] [\-d\ \fIDisk Space\fR] [\-h\ \fIHelp\fR]
 .br
 
 .SH "DESCRIPTION"
@@ -23,6 +23,41 @@ systemstats \- retrieves information about the host system
 \fB\-t\fR
 .RS
   get current core temperature of system temp=## c
+.RE
+.PP
+\fB\-c\fR
+.RS
+  Show current CPU core count
+.RE
+.PP
+\fB\-V\fR
+.RS
+  Show current system voltage
+.RE
+.PP
+\fB\-m\fR
+.RS
+  Show current system memory
+.RE
+.PP
+\fB\-M\fR
+.RS
+  Show current system GPU memory
+.RE
+.PP
+\fB\-f\fR
+.RS
+  Show current systems available free memory
+.RE
+.PP
+\fB\-d\fR
+.RS
+  Show current systems available and used disk space
+.RE
+.PP
+\fB\-h\fR
+.RS
+  Show help information for the command
 .RE
 
 .SH "NOTES"
