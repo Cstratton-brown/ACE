@@ -36,7 +36,7 @@ do
 case ${OPTION}
 in
 # 
-t) TEMP=$(cat /sys/class/thermal/thermal_zone0/temp | awk '{print substr ($0,1,2) "." substr ($0,3)}')
+t) TEMP=$(bash /home/pi/ACE/temperature)
    echo "Temperature: ${TEMP}";;
 m) ARM=$(vcgencmd get_mem arm | awk -F '=' '{print$2}')
    echo "arm memory: ${ARM}";;
