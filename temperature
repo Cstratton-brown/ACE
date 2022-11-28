@@ -43,6 +43,25 @@ MEDIAN=$( awk "BEGIN { printf ( ${TMP} / ${DIVIDE} ) } " | awk '{ printf "%2.2f\
 
 MIN=$( awk " BEGIN { printf ( ${MIN} / ${DIVIDE} ) } " | awk ' { printf "%2.2f\n",$0 } ' )
 MAX=$( awk " BEGIN { printf ( ${MAX} / ${DIVIDE} ) } " | awk ' { printf "%2.2f\n",$0 } ' )
+
+
 echo "Min: "${MIN} "Max: "${MAX} "Avg: "${AVGTEMP} "Med: "${MEDIAN}
 }
+
+while getopts "mMah" OPTION
+do
+case ${OPTION}
+in
+m) MIN=$( awk " BEGIN { printf ( ${MIN} / ${DIVIDE} ) } " | awk ' { printf "%2.2f\n",$0 } ' )
+echo "Minimum temperature: ${MIN}";;
+M) MAX=$( awk " BEGIN { printf ( ${MAX} / ${DIVIDE} ) } " | awk ' { printf "%2.2f\n",$0 } ' )
+echo "Maximum temperature: ${MAX}";;
+a) AVGTEMP=$( awk " BEGIN { printf ( ${SUM} / ${SIZE} / ${DIVIDE} ) } " | awk '{ printf "%2.2f\n", $0 } ')
+echo "Average temperature: ${AVGTEMP}";;
+h) MEDIAN=$( awk "BEGIN { printf ( ${TMP} / ${DIVIDE} ) } " | awk '{ printf "%2.2f\n",$0 }' )
+echo "Median temperature: ${MEDIAN}";;
+*) USAGE "\n${*} argument was not recognized";;
+esac
+done
+
 TEMPERATURESTATS
