@@ -36,7 +36,7 @@ do
 case ${OPTION}
 in
 # 
-t) TEMP=$(bash /home/pi/ACE/temperature)
+t) TEMP=$(bash /home/pi/ACE/temperature -t)
    echo "Temperature: ${TEMP}";;
 m) ARM=$(vcgencmd get_mem arm | awk -F '=' '{print$2}')
    echo "arm memory: ${ARM}";;

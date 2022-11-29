@@ -1,0 +1,47 @@
+#makes script a command by removing extension, chmod +x and cp to /usr/local/bin/ command
+
+USAGE(){
+	echo -e $1
+	echo -e "/nUseage: [-c create command] [-v version]"
+}
+
+VERSION="Version: 1.0"
+AUTHOR="Author: Charles Stratton-Brown"
+RELEASED="Release Date: 2022-11-29"
+COMMANDDIR="/usr/local/bin/"
+
+if [ $# -lt 1 ];then
+	USAGE "Not enough arguments"
+	exit 1
+elif [ $# -gt 2 ]; then
+	USAGE "To many arguments"
+elif [[ ( $1 == '--help' ) || ( $1 == '-h') ]];then
+	USAGE "Help"
+	exit 1
+fi
+
+# check for -c and that the file passed exists
+if [ ! $1 == '-c' ] || [ ! -f "$2" ];then
+	USAGE "please select correct option and 2nd argument to exist"
+	exit 1
+fi
+
+if [ ! $3 == -R ] && [ ! $4 ] 
+
+FILE=$(basename $2)
+FILE=${FILE%.*}
+
+sudo cp $2 ${FILE}
+echo "$2 extension has now been removed and copied as ${FILE}"
+
+sudo chmod +x ${FILE}
+echo "${FILE} is now an executable"
+
+echo "Copying ${FILE} to ${COMMANDDIR}${FILE}"
+sudo cp ${FILE} ${COMMANDDIR}${FILE}
+
+if [ ! -f ${COMMANDDIR}${FILE} ]; then
+	USAGE "File did not copy..."
+else
+	echo "${COMMANDDIR}${FILE} now exists!"
+fi

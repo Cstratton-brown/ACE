@@ -1,5 +1,24 @@
 #! /usr/bin/env bash
 
+
+USAGE(){
+	echo -e $1
+	echo -e "\nUseage: temperature [-m minimum temperature] [-M maximum temperature] [-a average temperature] [-h median temperature]"
+
+}
+
+if [[  ( $# -gt 1) || ( ${#1} -gt 5 )  ]];then
+	USAGE "To many arguements"
+	exit 1
+elif [[ ( $1 == '--help' ) || ( $1 == '-h' ) ]];then
+	USAGE "Help"
+	exit 0
+fi
+if [ $# -lt 1 ];then
+	USAGE "Not enough arguments"
+	exit 1
+fi
+
 TEMPERATURESTATS()
 {
 	DIVIDE=1000
@@ -45,23 +64,26 @@ MIN=$( awk " BEGIN { printf ( ${MIN} / ${DIVIDE} ) } " | awk ' { printf "%2.2f\n
 MAX=$( awk " BEGIN { printf ( ${MAX} / ${DIVIDE} ) } " | awk ' { printf "%2.2f\n",$0 } ' )
 
 
-## echo "Min: "${MIN} "Max: "${MAX} "Avg: "${AVGTEMP} "Med: "${MEDIAN}
 }
 
-while getopts "mMah" OPTION
+
+
+
+while getopts "mMant" OPTION
 do
 case ${OPTION}
 in
-m) MIN=$( awk " BEGIN { printf ( ${MIN} / ${DIVIDE} ) } " | awk ' { printf "%2.2f\n",$0 } ' )
-echo "Minimum temperature: ${MIN}";;
-M) MAX=$( awk " BEGIN { printf ( ${MAX} / ${DIVIDE} ) } " | awk ' { printf "%2.2f\n",$0 } ' )
-echo "Maximum temperature: ${MAX}";;
-a) AVGTEMP=$( awk " BEGIN { printf ( ${SUM} / ${SIZE} / ${DIVIDE} ) } " | awk '{ printf "%2.2f\n", $0 } ')
-echo "Average temperature: ${AVGTEMP}";;
-h) MEDIAN=$( awk "BEGIN { printf ( ${TMP} / ${DIVIDE} ) } " | awk '{ printf "%2.2f\n",$0 }' )
-echo "Median temperature: ${MEDIAN}";;
+
+m)TEMPERATURESTATS
+   echo "Minimum temperature: ${MIN}";;
+M)TEMPERATURESTATS
+    echo "Maximum temperature: ${MAX}";;
+a)TEMPERATURESTATS
+   echo "Average temperature: ${AVGTEMP}";;
+n)TEMPERATURESTATS
+   echo "Median temperature: ${MEDIAN}";;
+t)TEMPERATURESTATS
+   echo "Min: ${MIN} Max: ${MAX} Avg: ${AVGTEMP} Med: ${MEDIAN}";;
 *) USAGE "\n${*} argument was not recognized";;
 esac
 done
-
-TEMPERATURESTATS
