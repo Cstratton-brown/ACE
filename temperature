@@ -45,7 +45,7 @@ MIN=$( awk " BEGIN { printf ( ${MIN} / ${DIVIDE} ) } " | awk ' { printf "%2.2f\n
 MAX=$( awk " BEGIN { printf ( ${MAX} / ${DIVIDE} ) } " | awk ' { printf "%2.2f\n",$0 } ' )
 
 
-echo "Min: "${MIN} "Max: "${MAX} "Avg: "${AVGTEMP} "Med: "${MEDIAN}
+## echo "Min: "${MIN} "Max: "${MAX} "Avg: "${AVGTEMP} "Med: "${MEDIAN}
 }
 
 while getopts "mMah" OPTION
